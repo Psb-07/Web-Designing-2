@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TechZone Store</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body{background:linear-gradient(to right,#dbeafe,#f0f9ff);font-family:Arial}
+.navbar{background:linear-gradient(to right,#4f46e5,#2563eb)}
+.navbar-brand,.nav-link{color:#fff!important}
+.nav-link:hover{color:yellow!important}
+.main{text-align:center;margin:20px}
+.card{border:none;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.2);transition:.3s}
+.card:hover{transform:scale(1.03)}
+.card img{height:160px;object-fit:cover}
+.card-body{text-align:center}
+.btn-custom{background:#2563eb;color:#fff}
+.btn-custom:hover{background:#1e40af;color:#fff}
+footer{margin-top:20px;background:#111827;color:#fff;padding:10px;text-align:center}
+.info{text-align:center;margin-top:15px}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container">
+<a class="navbar-brand" href="#">TechZone</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="container main">
+<h1>Welcome to TechZone Store</h1>
+<p>Buy the latest gadgets with amazing offers.</p>
+</div>
+
+<div class="container">
+<div class="row">
+
+<div class="col-md-4 mb-3">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200">
+<div class="card-body">
+<h4>Gaming Laptop</h4>
+<p>Powerful laptop for coding and gaming.</p>
+<h5>₹50,000 <span class="badge bg-success">New</span></h5>
+<button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#m1">View Details</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-3">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200">
+<div class="card-body">
+<h4>Smart Phone</h4>
+<p>Latest 5G smartphone with HD camera.</p>
+<h5>₹30,000 <span class="badge bg-danger">Sale</span></h5>
+<button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#m2">View Details</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-3">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200">
+<div class="card-body">
+<h4>Wireless Headphones</h4>
+<p>Noise cancelling with deep bass sound.</p>
+<h5>₹5,000 <span class="badge bg-warning text-dark">Hot</span></h5>
+<button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#m3">View Details</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="modal fade" id="m1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Gaming Laptop Details</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body">Intel i7,16GB RAM,512GB SSD.</div></div></div></div>
+
+<div class="modal fade" id="m2"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Smart Phone Details</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body">108MP Camera, AMOLED Display.</div></div></div></div>
+
+<div class="modal fade" id="m3"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Headphones Details</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body">Wireless, premium bass sound.</div></div></div></div>
+
+<div class="info">
+</div>
+<footer>
+<h5>© 2026 TechZone Store</h5>
+<p>Instagram | Facebook | Twitter</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

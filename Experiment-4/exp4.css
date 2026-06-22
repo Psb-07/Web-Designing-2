@@ -1,0 +1,19 @@
+.container {
+  background-color: rgb(219, 221, 225);
+  text-align: center;
+  padding: 30px;
+  margin: 150px;
+  display: block;
+  align-items: center;
+  border-radius: 10px;
+}
+.button {
+  background-color: rgb(62, 62, 180);
+  color: white;
+  height: 35px;
+  width: 100px;
+  border-radius: 8px;
+}
+.button:hover {
+  background-color: red;
+}
