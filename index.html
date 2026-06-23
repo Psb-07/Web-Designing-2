@@ -1,43 +1,76 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-<title>My Website</title> 
-<link rel="stylesheet" href="index.css"> 
-</head> 
-<body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FitLife</title>
 
-<div class="header"> 
-    <h1>My Website</h1> 
-    
-</div> 
+<script src="https://cdn.tailwindcss.com"></script>
 
-<div class="navbar"> 
-    <div class="logo">Website</div> 
-    <div class="menu"> 
-        <a href="#">Home</a> 
-        <a href="#">About</a> 
-        <a href="#">Services</a> 
-        <a href="#">Contact</a> 
-    </div> 
-</div> 
-<!-- Content --> 
-<div class="container"> 
-    <div class="column"> 
-        <h2>Column 1</h2> 
-        <p>This is the first column. On small devices the column occupies full width, while on 
-medium and large devices it occupies half width using Bootstrap grid classes.</p> 
-    </div> 
-    <div style="border-left: 3px solid black; height: 200px;"></div> 
-    <div class="column"> 
-        <h2>Column 2</h2> 
-        <p>This is the second column. Bootstrap grid system helps to create responsive 
-layout.</p> 
-    </div> 
-</div> 
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+overflow:hidden;
+}
+.card:hover{
+transform:scale(1.05);
+transition:.3s;
+}
+</style>
+</head>
 
-<div class="footer"> 
-    Copyright © 2026 My Website 
-</div> 
-</body> 
-</html> 
- 
+<body class="h-screen flex flex-col text-white">
+
+<header class="bg-black px-8 py-3 flex justify-between items-center border-b-2 border-cyan-400">
+<h1 class="text-3xl font-bold text-cyan-400">FitLife</h1>
+
+<nav class="space-x-5 text-lg">
+<a href="#" class="hover:text-cyan-400">Home</a>
+<a href="#" class="hover:text-cyan-400">Programs</a>
+<a href="#" class="hover:text-cyan-400">Trainers</a>
+<a href="#" class="hover:text-cyan-400">Contact</a>
+</nav>
+</header>
+
+<section class="flex-1 flex flex-col justify-center items-center text-center bg-gradient-to-r from-purple-700 via-pink-600 to-red-500 px-6">
+
+<h2 class="text-5xl font-bold text-yellow-300 mb-3">
+Transform Your Body
+</h2>
+
+<p class="text-lg mb-5">
+Join FitLife and achieve your fitness goals.
+</p>
+
+<button class="bg-yellow-300 text-black px-6 py-2 rounded-full font-bold hover:bg-white">
+Join Now
+</button>
+
+<div class="grid grid-cols-3 gap-6 mt-10 w-full max-w-6xl">
+
+<div class="bg-slate-900 p-5 rounded-lg card border border-cyan-400">
+<h3 class="text-2xl text-cyan-400 font-bold mb-2">Weight Training</h3>
+<p>Build strength and muscle.</p>
+</div>
+
+<div class="bg-slate-900 p-5 rounded-lg card border border-pink-400">
+<h3 class="text-2xl text-pink-400 font-bold mb-2">Yoga Classes</h3>
+<p>Improve flexibility and balance.</p>
+</div>
+
+<div class="bg-slate-900 p-5 rounded-lg card border border-green-400">
+<h3 class="text-2xl text-green-400 font-bold mb-2">Diet Plans</h3>
+<p>Healthy personalized diet routines.</p>
+</div>
+
+</div>
+
+</section>
+<footer class="bg-black text-center py-3 border-t-2 border-cyan-400">
+<p class="text-yellow-300">© 2026 FitLife</p>
+</footer>
+
+</body>
+</html>
