@@ -1,0 +1,350 @@
+/* ============================================================
+   style.css  –  To-Do List App
+   Sections:
+     1. Reset & base
+     2. Layout & container
+     3. Header
+     4. Input area
+     5. Filter buttons
+     6. Task list & items
+     7. Completed state
+     8. Empty state
+     9. Footer
+    10. Animations
+    11. Responsive (mobile)
+   ============================================================ */
+
+
+/* ── 1. Reset & base ─────────────────────────────────────── */
+
+/* Remove default browser margin/padding and use border-box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  /* Soft gradient background */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  color: #2d2d2d;
+}
+
+
+/* ── 2. Layout & container ───────────────────────────────── */
+
+.container {
+  max-width: 560px;         /* Never wider than 560px */
+  margin: 0 auto;           /* Centre horizontally */
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ── 3. Header ───────────────────────────────────────────── */
+
+.header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  /* Purple-to-blue gradient clipped to text */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.app-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+
+/* ── 4. Input area ───────────────────────────────────────── */
+
+.input-area {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.task-input {
+  flex: 1;                  /* Take all available space */
+  padding: 0.65rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+/* Highlight border when the input is focused */
+.task-input:focus {
+  border-color: #667eea;
+}
+
+/* Shared button styles */
+.btn {
+  padding: 0.65rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.96);   /* Tiny press effect */
+}
+
+.btn-add {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.btn-add:hover {
+  opacity: 0.9;
+}
+
+
+/* ── 5. Filter buttons ───────────────────────────────────── */
+
+.filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.filter-btn {
+  flex: 1;
+  padding: 0.45rem 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Active / selected filter */
+.filter-btn.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: #fff;
+}
+
+.filter-btn:not(.active):hover {
+  border-color: #999;
+  color: #333;
+}
+
+
+/* ── 6. Task list & items ────────────────────────────────── */
+
+.task-list {
+  list-style: none;          /* Remove bullet points */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Single task row */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  background: #f8f8fc;
+  border: 1.5px solid #ececec;
+  border-radius: 12px;
+  transition: box-shadow 0.2s, opacity 0.2s;
+  /* Animate new tasks sliding in from the top */
+  animation: slideIn 0.25s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.12);
+}
+
+/* Custom circular checkbox */
+.task-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+/* Checked state: fill with gradient and show a tick mark */
+.task-checkbox:checked {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-color: #667eea;
+}
+
+.task-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* Task label text */
+.task-text {
+  flex: 1;
+  font-size: 0.95rem;
+  word-break: break-word;
+  color: #2d2d2d;
+  transition: color 0.2s;
+}
+
+/* Delete button (shown on hover) */
+.btn-delete {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #ccc;
+  padding: 0 4px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  line-height: 1;
+}
+
+.btn-delete:hover {
+  color: #e55353;
+  background: #fff0f0;
+}
+
+
+/* ── 7. Completed state ──────────────────────────────────── */
+
+/* When the checkbox is checked, the parent li gets this class */
+.task-item.completed {
+  opacity: 0.6;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+
+/* ── 8. Empty state ──────────────────────────────────────── */
+
+.empty-state {
+  text-align: center;
+  padding: 2rem 0 1.5rem;
+  color: #aaa;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+
+/* ── 9. Footer ───────────────────────────────────────────── */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1.5px solid #ececec;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.task-count {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.btn-clear {
+  background: transparent;
+  border: 1.5px solid #e0e0e0;
+  color: #999;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+}
+
+.btn-clear:hover {
+  border-color: #e55353;
+  color: #e55353;
+  background: #fff5f5;
+}
+
+
+/* ── 10. Animations ──────────────────────────────────────── */
+
+/* New task slides in from slightly above */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .task-item {
+    animation: none;
+  }
+}
+
+
+/* ── 11. Responsive ──────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+
+  .app-title {
+    font-size: 1.6rem;
+  }
+
+  .input-area {
+    flex-direction: column;  /* Stack input and button on small screens */
+  }
+
+  .btn-add {
+    width: 100%;
+    text-align: center;
+  }
+}

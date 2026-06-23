@@ -1,31 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM events</title>
-    <link rel="stylesheet" href="exp6.css">
-</head>
-<body>
-  
- <div class="container">
-    <h2 id="mainHeading">Welcome to JavaScript Lab</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Makes the page responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List App</title>
 
-    <input type="text" id="userInput" placeholder="Enter new heading text">
+    <!-- Link to our external stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
 
-    <br><br>
+    <div class="container">
 
-    <button id="changeTextBtn">Change Heading</button>
-    <button id="bgColorBtn">Change Background</button>
-    <button id="fontSizeBtn">Increase Font Size</button>
-    <button id="toggleBtn">Show/Hide Paragraph</button>
-    <button id="resetBtn">Reset</button>
+      <!-- ── App Header ── -->
+      <header class="header">
+        <h1 class="app-title">My To-Do List</h1>
+        <p class="app-subtitle">Stay organised, one task at a time.</p>
+      </header>
 
-    <p id="paragraph">
-        This is a sample paragraph. JavaScript events can dynamically change content.
-    </p>
-</div>
+      <!-- ── Add Task Form ── -->
+      <div class="input-area">
+        <!--
+          The input where the user types a new task.
+          id="taskInput" lets JavaScript find it easily.
+        -->
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="Add a new task…"
+          maxlength="120"
+          aria-label="New task"
+        />
+        <!-- Clicking this button calls addTask() in script.js -->
+        <button class="btn btn-add" onclick="addTask()" aria-label="Add task">
+          + Add
+        </button>
+      </div>
 
-    <script src="exp6.js"></script>
-</body>
+      <!-- ── Filter Buttons ── -->
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button class="filter-btn active" data-filter="all"       onclick="filterTasks(this)">All</button>
+        <button class="filter-btn"        data-filter="active"    onclick="filterTasks(this)">Active</button>
+        <button class="filter-btn"        data-filter="completed" onclick="filterTasks(this)">Completed</button>
+      </div>
+
+      <!-- ── Task List ── -->
+      <!--
+        Tasks are injected here by JavaScript.
+        aria-live="polite" tells screen readers to announce changes.
+      -->
+      <ul class="task-list" id="taskList" aria-live="polite"></ul>
+
+      <!-- ── Empty State (shown when no tasks exist) ── -->
+      <div class="empty-state" id="emptyState" hidden>
+        <span class="empty-icon">📋</span>
+        <p>No tasks yet — add one above!</p>
+      </div>
+
+      <!-- ── Footer Summary & Clear Button ── -->
+      <footer class="footer" id="footer" hidden>
+        <span id="taskCount" class="task-count"></span>
+        <button class="btn btn-clear" onclick="clearCompleted()">
+          Clear completed
+        </button>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- Link to our external JavaScript file (placed at bottom so HTML loads first) -->
+    <script src="script.js"></script>
+  </body>
 </html>
